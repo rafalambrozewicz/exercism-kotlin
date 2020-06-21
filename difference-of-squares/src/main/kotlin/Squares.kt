@@ -1,15 +1,14 @@
-class Squares {
-    //TODO: implement proper constructor
+class Squares(val n: Long) {
 
-    fun sumOfSquares() {
-        TODO("Implement the function to complete the task")
+    fun difference(): Long {
+        return squareOfSum() - sumOfSquares()
     }
 
-    fun squareOfSum() {
-        TODO("Implement the function to complete the task")
+    fun squareOfSum(): Long {
+        return (n * (n+1) / 2) * (n * (n+1) / 2)
     }
 
-    fun difference() {
-        TODO("Implement the function to complete the task")
+    fun sumOfSquares(): Long {
+        return n * (n+1) * (2*n+1) / 6
     }
 }

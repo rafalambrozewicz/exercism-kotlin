@@ -1,7 +1,11 @@
-class Anagram {
-    // TODO: implement proper constructor to complete the task
+class Anagram(private val source: String) {
+
+    private val sourceSortedLettersMap = source.toLowerCase().groupBy { it }.toSortedMap()
 
     fun match(anagrams: Collection<String>): Set<String> {
-        TODO("Implement the function to complete the task")
+        return anagrams.filter {
+            (it.toLowerCase().groupBy { it }.toSortedMap() == sourceSortedLettersMap) &&
+                    (it.toLowerCase() != source.toLowerCase())
+        }.toSet()
     }
 }

@@ -1,8 +1,28 @@
-class Triangle<out T : Number>(val a: T, val b: T, val c: T) {
+import java.lang.IllegalArgumentException
 
-    // TODO: Implement proper constructor
+class Triangle(private val fL: Double,
+               private val sL: Double,
+               private val tL: Double) {
 
-    val isEquilateral: Boolean = TODO("Implement this getter to complete the task")
-    val isIsosceles: Boolean = TODO("Implement this getter to complete the task")
-    val isScalene: Boolean = TODO("Implement this getter to complete the task")
+    constructor( f: Int, s: Int, t:Int) : this(f.toDouble(), s.toDouble(), t.toDouble())
+
+    init {
+        if (fL==0.0 || sL==0.0 || tL==0.0) {
+            throw IllegalArgumentException("Length needs to be more that 0")
+        }
+
+        if ((fL + sL < tL) || (sL + tL < fL) || (tL + fL < sL)) {
+            throw IllegalArgumentException("Illegal lengths for triangle")
+        }
+    }
+
+    val isScalene: Boolean
+        get() = (fL != sL) && (fL != tL) && (sL != tL)
+
+    val isIsosceles: Boolean
+        get() = (fL == sL) || (fL == tL) || (sL == tL)
+
+    val isEquilateral: Boolean
+        get() = (fL == sL) && (sL == tL)
+
 }

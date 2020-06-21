@@ -1,22 +1,21 @@
+import kotlin.random.Random
+
 class DndCharacter {
 
-    val strength: Int = TODO("Initialize value to complete the task")
-    val dexterity: Int = TODO("Initialize value to complete the task")
-    val constitution: Int = TODO("Initialize value to complete the task")
-    val intelligence: Int = TODO("Initialize value to complete the task")
-    val wisdom: Int = TODO("Initialize value to complete the task")
-    val charisma: Int = TODO("Initialize value to complete the task")
-    val hitpoints: Int = TODO("Initialize value to complete the task")
+    val strength: Int = ability()
+    val dexterity: Int = ability()
+    val constitution: Int = ability()
+    val intelligence: Int = ability()
+    val wisdom: Int = ability()
+    val charisma: Int = ability()
+    val hitpoints: Int = 10 + modifier(constitution)
 
     companion object {
 
-        fun ability(): Int {
-            TODO("Implement the function to complete the task")
-        }
+        fun ability(): Int = List(4) { rollTheDice() }.sorted().drop(1).sum()
 
-        fun modifier(score: Int): Int {
-            TODO("Implement the function to complete the task")
-        }
+        private fun rollTheDice(): Int = Random.Default.nextInt(6) + 1
+
+        fun modifier(score: Int): Int = kotlin.math.floor(((score - 10.0) / 2.0)).toInt()
     }
-
 }

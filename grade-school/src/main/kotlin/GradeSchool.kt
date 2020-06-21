@@ -1,14 +1,15 @@
+import java.util.*
+
 class School {
 
+    private val gradeToStudents = sortedMapOf<Int, SortedSet<String>>()
+
     fun add(student: String, grade: Int) {
-        TODO("Implement this function to complete the task")
+        val students = gradeToStudents.getOrElse(grade) { sortedSetOf() }
+        gradeToStudents[grade] = (students + student).toSortedSet()
     }
 
-    fun grade(grade: Int): List<String> {
-        TODO("Implement this function to complete the task")
-    }
+    fun grade(grade: Int): List<String> = gradeToStudents.getOrElse(grade) { sortedSetOf() }.toList()
 
-    fun roster(): List<String> {
-        TODO("Implement this function to complete the task")
-    }
+    fun roster(): List<String> = gradeToStudents.values.flatten()
 }

@@ -1,8 +1,12 @@
-class RotationalCipher {
-
-    // TODO: Implement proper constructor
+class RotationalCipher(private val rot: Int) {
 
     fun encode(text: String): String {
-        TODO("Implement this function to complete the task")
+        return text.map {
+            when {
+                it.isUpperCase() -> ('A' + ((it - 'A' + rot) % 26))
+                it.isLowerCase() -> ('a' + ((it - 'a' + rot) % 26))
+                else -> it
+            }
+        }.joinToString(separator = "")
     }
 }

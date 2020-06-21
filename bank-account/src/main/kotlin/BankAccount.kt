@@ -1,11 +1,29 @@
+import java.util.concurrent.locks.ReentrantLock
+import kotlin.concurrent.withLock
+
 class BankAccount {
-    // TODO: implement read access to 'balance'
+    private val lock = ReentrantLock()
+
+    private var isOpened: Boolean = true
+
+    var balance: Long = 0
+        get() {
+            check(isOpened)
+            return field
+        }
+        private set
+
 
     fun adjustBalance(amount: Long){
-        TODO("Implement the function to complete the task")
+        lock.withLock {
+            check(isOpened)
+            balance += amount
+        }
     }
 
     fun close() {
-        TODO("Implement the function to complete the task")
+        lock.withLock {
+            isOpened = false
+        }
     }
 }

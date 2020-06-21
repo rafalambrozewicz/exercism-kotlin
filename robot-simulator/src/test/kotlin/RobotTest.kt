@@ -1,4 +1,3 @@
-import org.junit.Ignore
 import org.junit.Test
 import kotlin.test.assertEquals
 
@@ -12,7 +11,6 @@ class RobotTest {
                 beAt(x = 0, y = 0)
             }
 
-    @Ignore
     @Test
     fun `brand new - at negative position facing south`() =
         Robot(GridPosition(x = -1, y = -1), Orientation.SOUTH)
@@ -21,7 +19,6 @@ class RobotTest {
                 beAt(x = -1, y = -1)
             }
 
-    @Ignore
     @Test
     fun `rotating clockwise - changes north to east`() =
         Robot(GridPosition(x = 0, y = 0), Orientation.NORTH)
@@ -30,7 +27,6 @@ class RobotTest {
                 face(Orientation.EAST)
             }
 
-    @Ignore
     @Test
     fun `rotating clockwise - changes east to south`() =
         Robot(GridPosition(x = 0, y = 0), Orientation.EAST)
@@ -39,7 +35,6 @@ class RobotTest {
                 face(Orientation.SOUTH)
             }
 
-    @Ignore
     @Test
     fun `rotating clockwise - changes south to west`() =
         Robot(GridPosition(x = 0, y = 0), Orientation.SOUTH)
@@ -48,7 +43,6 @@ class RobotTest {
                 face(Orientation.WEST)
             }
 
-    @Ignore
     @Test
     fun `rotating clockwise - changes west to north`() =
         Robot(GridPosition(x = 0, y = 0), Orientation.WEST)
@@ -57,7 +51,6 @@ class RobotTest {
                 face(Orientation.NORTH)
             }
 
-    @Ignore
     @Test
     fun `rotating counter-clockwise - changes north to west`() =
         Robot(GridPosition(x = 0, y = 0), Orientation.NORTH)
@@ -66,7 +59,6 @@ class RobotTest {
                 face(Orientation.WEST)
             }
 
-    @Ignore
     @Test
     fun `rotating counter-clockwise - changes west to south`() =
         Robot(GridPosition(x = 0, y = 0), Orientation.WEST)
@@ -75,7 +67,6 @@ class RobotTest {
                 face(Orientation.SOUTH)
             }
 
-    @Ignore
     @Test
     fun `rotating counter-clockwise - changes south to east`() =
         Robot(GridPosition(x = 0, y = 0), Orientation.SOUTH)
@@ -84,7 +75,6 @@ class RobotTest {
                 face(Orientation.EAST)
             }
 
-    @Ignore
     @Test
     fun `rotating counter-clockwise - changes east to north`() =
         Robot(GridPosition(x = 0, y = 0), Orientation.EAST)
@@ -93,7 +83,6 @@ class RobotTest {
                 face(Orientation.NORTH)
             }
 
-    @Ignore
     @Test
     fun `moving forward - facing north increments Y`() =
         Robot(GridPosition(x = 0, y = 0), Orientation.NORTH)
@@ -103,7 +92,6 @@ class RobotTest {
                 beAt(x = 0, y = 1)
             }
 
-    @Ignore
     @Test
     fun `moving forward - facing south decrements Y`() =
         Robot(GridPosition(x = 0, y = 0), Orientation.SOUTH)
@@ -113,7 +101,6 @@ class RobotTest {
                 beAt(x = 0, y = -1)
             }
 
-    @Ignore
     @Test
     fun `moving forward - facing east increments X`() =
         Robot(GridPosition(x = 0, y = 0), Orientation.EAST)
@@ -123,7 +110,6 @@ class RobotTest {
                 beAt(x = 1, y = 0)
             }
 
-    @Ignore
     @Test
     fun `moving forward - facing west decrements X`() =
         Robot(GridPosition(x = 0, y = 0), Orientation.WEST)
@@ -133,7 +119,6 @@ class RobotTest {
                 beAt(x = -1, y = 0)
             }
 
-    @Ignore
     @Test
     fun `series of instructions - moving east and north example`() =
         Robot(GridPosition(x = 7, y = 3), Orientation.NORTH)
@@ -143,7 +128,6 @@ class RobotTest {
                 beAt(x = 9, y = 4)
             }
 
-    @Ignore
     @Test
     fun `series of instructions - moving west and north`() =
         Robot(GridPosition(x = 0, y = 0), Orientation.NORTH)
@@ -153,7 +137,6 @@ class RobotTest {
                 beAt(x = -4, y = 1)
             }
 
-    @Ignore
     @Test
     fun `series of instructions - moving west and south`() =
         Robot(GridPosition(x = 2, y = -7), Orientation.EAST)
@@ -163,7 +146,6 @@ class RobotTest {
                 beAt(x = -3, y = -8)
             }
 
-    @Ignore
     @Test
     fun `series of instructions - moving east and north`() =
         Robot(GridPosition(x = 8, y = 4), Orientation.SOUTH)

@@ -1,12 +1,16 @@
+import java.lang.IllegalArgumentException
 import java.math.BigInteger
 
 object Board {
 
-    fun getGrainCountForSquare(number: Int): BigInteger {
-        TODO("Implement this function to complete the task")
+    fun getGrainCountForSquare(n: Int): BigInteger {
+        validate(n)
+        return BigInteger.ONE shl (n-1)
     }
 
-    fun getTotalGrainCount(): BigInteger {
-        TODO("Implement this function to complete the task")
+    private fun validate(n: Int) {
+        if (n<1 || n>64) { throw IllegalArgumentException("Only integers between 1 and 64 (inclusive) are allowed") }
     }
+
+    fun getTotalGrainCount(): BigInteger = (BigInteger.ONE shl 64) - BigInteger.ONE
 }

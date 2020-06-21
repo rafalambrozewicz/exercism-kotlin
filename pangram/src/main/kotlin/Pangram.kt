@@ -1,6 +1,11 @@
-object Pangram {
+class Pangram {
 
-    fun isPangram(input: String): Boolean {
-        TODO("Implement this function to complete the task")
+    companion object {
+        fun isPangram(text: String): Boolean {
+            for (letter in 'a'..'z') {
+                if (!text.contains(letter, ignoreCase = true)) return false
+            }
+            return true;
+        }
     }
 }
